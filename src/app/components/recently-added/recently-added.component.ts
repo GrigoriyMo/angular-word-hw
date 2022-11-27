@@ -10,6 +10,7 @@ import { WordsList } from './WordsList'
 })
 
 export class RecentlyAddedComponent {
+  
   words = [
     {
       rus: 'Дом',
@@ -17,15 +18,15 @@ export class RecentlyAddedComponent {
     }
   ]
 
+  renderWordList: Array<Word> = [];
+  
   ngOnInit() {
 
     let tempWord = new Word(this.words[0]);
     let wordList = new WordsList();
      wordList.pushList(tempWord);
-    let renderWordList = wordList.getList();
-    console.log(renderWordList);
+    this.renderWordList = wordList.getList();
+   
   }
-
-  //
 
 }
