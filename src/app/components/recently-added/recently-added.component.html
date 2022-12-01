@@ -1,9 +1,9 @@
-<p>recently-added works!</p>
 
 <ul>
     <li *ngFor="let word of renderWordList; index as i">
         <p>Слово #{{i+1}}</p>
-        <p>item.eng</p>
-        <p>item.rus</p>
+        <p>{{word.eng}}</p>
+        <p>{{word.rus}}</p>
+        <button>Добавить в словарь</button>
     </li>
 </ul>
