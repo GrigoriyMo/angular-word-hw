@@ -1,17 +1,17 @@
 import { Word } from './Word'
 
-export class WordsList{
+export class WordsList {
     private list: Array<Word>;
 
-    constructor(){
+    constructor() {
         this.list = [];
     }
 
-     pushList(data: any){
-        this.list.push(data)
+    pushList(data: any) {
+        this.list.push(new Word(data.word))
     }
 
-    getList(){
+    getList() {
         return this.list;
     }
 }

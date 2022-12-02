@@ -7,22 +7,16 @@ import { RandomWord } from '../../Classes/RandomWord'
   providedIn: 'root'
 })
 export class RandomWordService {
+  public type= 'noun';
+  private wordsUrl = `https://api.api-ninjas.com/v1/randomword?type=${this.type}`;
 
-  private wordsUrl = 'https://api.api-ninjas.com/v1/randomword';
+  constructor(private http: HttpClient) { }
 
-  constructor( private http: HttpClient) { }
+  getRandomWords(): Observable<RandomWord> {
 
-  getRandomWords(): Observable<RandomWord[]> {
-   
-    this.http.get<RandomWord>(this.wordsUrl);
+    let httpHeaders = new HttpHeaders();
+    httpHeaders = httpHeaders.set('X-Api-Key', 'uIM1baaBU7RJ8/M8i+4hXw==FvImFB8RJHIdjrqH')
 
-    const WORDS: RandomWord[] = [
-      new RandomWord('hello'),
-      new RandomWord('bye')
-    ];
-    
-    const word = of(WORDS);
-   
-    return word;
+    return this.http.get<RandomWord>(this.wordsUrl, { headers: httpHeaders });
   }
 }

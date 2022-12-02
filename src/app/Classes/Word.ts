@@ -1,14 +1,15 @@
 
 export class Word {
     public rus: string;
-    public eng: string;
-    public inVocabulary: boolean;
 
-    constructor (
-        public word: any
+    constructor(
+        public eng: string
     ) {
-        this.rus = word.rus;
-        this.eng = word.eng
-        this.inVocabulary = false;
+        this.rus = ''
+        this.eng = eng
     };
+
+    setRusTranslate(translation: string) {
+        this.rus = translation;
+    }
 }
