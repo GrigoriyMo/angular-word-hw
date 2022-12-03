@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,6 +9,7 @@ import { SettingsComponent } from './components/settings/settings.component';
 import { RecentlyAddedComponent } from './components/recently-added/recently-added.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { CommonModule } from '@angular/common';
+import { TranslatecheckformComponent } from './components/translatecheckform/translatecheckform.component';
 
 
 @NgModule({
@@ -17,14 +18,15 @@ import { CommonModule } from '@angular/common';
     GoComponent,
     SettingsComponent,
     RecentlyAddedComponent,
-    NavigationComponent
+    NavigationComponent,
+    TranslatecheckformComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    CommonModule
+    CommonModule,ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

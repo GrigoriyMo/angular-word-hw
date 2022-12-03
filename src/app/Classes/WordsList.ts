@@ -8,7 +8,7 @@ export class WordsList {
     }
 
     pushList(data: any) {
-        this.list.push(new Word(data.word))
+        this.list.push(new Word(data.word.toLowerCase()))
     }
 
     getList() {

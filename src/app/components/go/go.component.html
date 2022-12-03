@@ -1,12 +1,3 @@
 <li *ngFor="let elem of newWords.getList(); index as i">
-    <form action="">
-        <fieldset>
-            <label for="id-{{i+1}}">
-                <p>{{elem.eng}}</p>
-            </label>
-            <input required id="id-{{i+1}}" type="text" 
-           >
-            <input type="submit" value="Проверить">
-        </fieldset>
-    </form>
+    <app-translatecheckform engWord="{{elem.eng}}" wordIndex="{{i+1}}"></app-translatecheckform>
 </li>

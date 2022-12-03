@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RandomWordService } from '../../services/random-word/random-word.service'
-import { TranslateService } from '../../services/translate/translate.service'
+
 import { WordsList } from '../../Classes/WordsList'
 
 @Component({
@@ -16,8 +16,9 @@ export class GoComponent implements OnInit {
 
   onSubmit() { this.submitted = true; }
 
+  proposedWordTranslation = ''; //cюда записывается слово из инпута
 
-  constructor(private randomWordService: RandomWordService, private translateService: TranslateService) { }
+  constructor(private randomWordService: RandomWordService) { }
 
   getWord(): void {
     this.randomWordService.getRandomWords()
@@ -26,15 +27,9 @@ export class GoComponent implements OnInit {
       });
   }
 
-  translateWord(stringToTranslate:string): void {
-    this.translateService.postTranslate(stringToTranslate)
-      .subscribe(elem => {
-        console.log(elem);
-      })
-  }
+
 
   ngOnInit(): void {
-    this.translateWord('hello');
     for (var i = 0; i < 5; i++) {
       this.getWord();
     }
