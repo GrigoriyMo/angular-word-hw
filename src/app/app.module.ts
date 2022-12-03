@@ -10,6 +10,7 @@ import { RecentlyAddedComponent } from './components/recently-added/recently-add
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { CommonModule } from '@angular/common';
 import { TranslatecheckformComponent } from './components/translatecheckform/translatecheckform.component';
+import { TranslateService } from './services/translate/translate.service'
 
 
 @NgModule({

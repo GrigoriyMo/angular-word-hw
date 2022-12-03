@@ -4,8 +4,10 @@ import { TranslateService } from '../../services/translate/translate.service'
 @Component({
   selector: 'app-translatecheckform',
   templateUrl: './translatecheckform.component.html',
-  styleUrls: ['./translatecheckform.component.css']
+  styleUrls: ['./translatecheckform.component.css'],
+  providers:[TranslateService]
 })
+
 export class TranslatecheckformComponent implements OnInit {
   @Input() engWord = ''; // decorate the property with @Input()
   @Input() wordIndex = ''; // decorate the property with @Input()
@@ -14,14 +16,27 @@ export class TranslatecheckformComponent implements OnInit {
     proposedTranslate: ''
   });
 
-  constructor(private formBuilder: FormBuilder, private translateService: TranslateService) { }
+  constructor(
+    private formBuilder: FormBuilder, 
+    private translateService: TranslateService
+    )  { }
+   
 
-  checkTranslate(){}
+  checkTranslate(proposedTranslate:string, realTranslate:any):boolean{
+    let checkResult:boolean = false;
+    console.log(realTranslate)
+    if(proposedTranslate.toLowerCase() == realTranslate.data.translations[0].translatedText.toLowerCase()){
+      checkResult = true;
+    }
+    console.log(checkResult)
+    return checkResult;
+  }
 
   translateWord(stringToTranslate: string): void {
     this.translateService.postTranslate(stringToTranslate)
       .subscribe(elem => {
-        console.log(elem);
+        console.log(elem)
+        this.checkTranslate(stringToTranslate, elem);
       })
   }
 
