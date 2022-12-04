@@ -1,0 +1,44 @@
+@startuml логика работы страницы Упражнения
+
+title логика работы страницы Упражнения
+
+actor user as "Пользователь"
+participant ang as "Angular приложение"
+participant googleApi as "Translate api"
+participant wordApi as "Word api"
+
+autonumber
+activate user
+user->ang: Открыть "Упражнения"
+activate ang
+ang->ang: go.component
+
+ang->ang: getWord() x times
+group RandomWordService
+    ang->wordApi: getRandomWords()
+    activate wordApi
+    wordApi --> ang: word
+
+    deactivate wordApi
+end
+ang->ang: WordsList.push(word)
+ang->ang: render translatecheckform (WordsList)
+ang-->user: Отобразить списо\nслов для ввода перевода
+user->ang: Ввести и проверить перевод
+ang->ang: Записать в proposedTranslate
+ang->ang: translateWord()
+group TranslateService
+    ang->googleApi:postTranslate()
+    activate googleApi
+    googleApi-->ang: translations[].word
+    deactivate googleApi
+end
+ang->ang: checkTranslate(proposedTranslate, translations[].word)
+alt Перевод введен правильно
+    ang->ang: word.setRusTranslate()
+    ang->ang: localStorage.setItem()
+else Перевод введен неправильно
+    ang->ang: word.setIncorrectRusTranslate()
+end
+ang-->user: Отобразить пользователю результат проверки
+@enduml

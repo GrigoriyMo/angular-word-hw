@@ -1,4 +1,5 @@
 
+
 export class Word {
     public rus: string;
     public proposedRus: string | undefined;
@@ -10,7 +11,7 @@ export class Word {
         this.eng = eng
     };
 
-    setRusTranslate(translation: string) {
-        this.rus = translation;
+    setRusTranslate(translation: any) {
+        this.rus = translation.data.translations[0].translatedText.toLowerCase();
     }
 }

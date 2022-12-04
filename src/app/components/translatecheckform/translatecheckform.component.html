@@ -1,11 +1,11 @@
 
-<form [formGroup]="checkoutForm"  (ngSubmit)="onSubmit()">
-    <fieldset>
+<form ngNativeValidate [formGroup]="checkoutForm"  (ngSubmit)="onSubmit() ">
+   
         <label for="id-{{wordIndex}}">
             <p>{{engWord}}</p>
         </label>
-        <input required id="id-{{wordIndex}}" type="text" 
+        <input placeholder="Введите перевод" required id="id-{{wordIndex}}" type="text" 
         formControlName="proposedTranslate">
        <button class="button" type="submit">Проверить</button>
-    </fieldset>
+   
 </form>
