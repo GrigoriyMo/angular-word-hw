@@ -1,3 +1,3 @@
-<li *ngFor="let elem of newWords.getList(); index as i">
-    <app-translatecheckform engWord="{{elem.eng}}" wordIndex="{{i+1}}"></app-translatecheckform>
+<li *ngFor="let elem of newWords; index as i">
+    <app-translatecheckform engWord="{{elem}}" (change)="wordLearnedChange($event)" wordIndex="{{i+1}}"></app-translatecheckform>
 </li>

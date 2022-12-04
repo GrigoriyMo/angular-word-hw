@@ -7,11 +7,26 @@ export class WordsList {
         this.list = [];
     }
 
-    pushList(data: any) {
-        this.list.push(new Word(data.word.toLowerCase()))
+    pushList(data: Word) {
+        this.list.push(data)
     }
 
     getList() {
-        return this.list;
+        if( localStorage.getItem('learnedWords')){
+            return this.list = JSON.parse(localStorage.getItem('learnedWords')!);
+        }else{
+            return this.list;
+        }
+        
+    }
+
+    saveList(){
+        localStorage.removeItem('learnedWords');
+        localStorage.setItem('learnedWords',JSON.stringify(this.list));
+    }
+
+    resetList(){
+        this.list = [];
+        localStorage.removeItem('learnedWords');
     }
 }

@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { RandomWord } from '../../Classes/RandomWord'
 
 @Injectable({
   providedIn: 'root'
@@ -12,11 +11,11 @@ export class RandomWordService {
 
   constructor(private http: HttpClient) { }
 
-  getRandomWords(): Observable<RandomWord> {
+  getRandomWords(): Observable<any> {
 
     let httpHeaders = new HttpHeaders();
     httpHeaders = httpHeaders.set('X-Api-Key', 'uIM1baaBU7RJ8/M8i+4hXw==FvImFB8RJHIdjrqH')
 
-    return this.http.get<RandomWord>(this.wordsUrl, { headers: httpHeaders });
+    return this.http.get<any>(this.wordsUrl, { headers: httpHeaders });
   }
 }

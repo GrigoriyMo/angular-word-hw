@@ -2,11 +2,13 @@
 
 export class Word {
     public rus: string;
+    public eng: string;
     public proposedRus: string | undefined;
     
     constructor(
-        public eng: string
+         eng: string
     ) {
+        
         this.rus = ''
         this.eng = eng
     };
