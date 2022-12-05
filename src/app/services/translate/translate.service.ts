@@ -20,7 +20,7 @@ export class TranslateService {
     let httpHeaders = new HttpHeaders();
     httpHeaders = httpHeaders.set('content-type', 'application/x-www-form-urlencoded');
     httpHeaders = httpHeaders.append('Accept-Encoding', 'application/gzip');
-    httpHeaders = httpHeaders.append('X-RapidAPI-Key', 'e263c85038msh59b3b1b54125060p161c1djsnaee8f2d34ecb');
+    httpHeaders = httpHeaders.append('X-RapidAPI-Key', '');
     httpHeaders = httpHeaders.append('X-RapidAPI-Host', 'google-translate1.p.rapidapi.com');
 
     return this.http.post<string>(url, encodedParams, { headers: httpHeaders });
