@@ -14,7 +14,7 @@ export class RandomWordService {
   getRandomWords(): Observable<any> {
 
     let httpHeaders = new HttpHeaders();
-    httpHeaders = httpHeaders.set('X-Api-Key', 'uIM1baaBU7RJ8/M8i+4hXw==FvImFB8RJHIdjrqH')
+    httpHeaders = httpHeaders.set('X-Api-Key', '')
 
     return this.http.get<any>(this.wordsUrl, { headers: httpHeaders });
   }
